@@ -5,11 +5,11 @@ Tool Name:
 
 Command:
   -p24FJ128GC006 \
-  --mdfp=C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC24F-GC_DFP/1.2.36/xc16 \
+  --mdfp=C:/Users/Colton/.mchp_packs/Microchip/PIC24F-GC_DFP/1.3.46/xc16 \
   -o \
   dist/default/production/Prj400.X.production.elf \
   -Lc:/program files/microchip/xc16/v1.60/bin/bin/.. \
-  -LC:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC24F-GC_DFP/1.2.36/xc16/bin/../support/PIC24F/gld \
+  -LC:/Users/Colton/.mchp_packs/Microchip/PIC24F-GC_DFP/1.3.46/xc16/bin/../support/PIC24F/gld \
   -Lc:/program files/microchip/xc16/v1.60/bin/bin/../../lib \
   -Lc:/program files/microchip/xc16/v1.60/bin/bin/../../support/PIC24E/gld \
   -Lc:/program files/microchip/xc16/v1.60/bin/bin/../../support/PIC24F/gld \
@@ -27,8 +27,8 @@ Command:
   build/default/production/mcc_generated_files/tmr1.o \
   build/default/production/Main.o \
   build/default/production/InputManager.o \
-  build/default/production/mcc_generated_files/i2c1.o \
   build/default/production/AnalogOutManager.o \
+  build/default/production/mcc_generated_files/i2c1.o \
   --local-stack \
   --defsym=__MPLAB_BUILD=1 \
   -Tp24FJ128GC006.gld.00 \
@@ -75,12 +75,12 @@ Default Scalar Model: Small
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.text                        0x200               0x44c           0x672  (1650)
-.text                        0x64c               0x59e           0x86d  (2157)
-.dinit                       0xbea                0x3a            0x57  (87)
-.text                        0xc24                0xa8            0xfc  (252)
+.text                        0x200               0x472           0x6ab  (1707)
+.text                        0x672               0x5f0           0x8e8  (2280)
+.dinit                       0xc62                0x3a            0x57  (87)
+.text                        0xc9c                0xb2           0x10b  (267)
 
-                 Total "program" memory used (bytes):         0x1032  (4146) 3%
+                 Total "program" memory used (bytes):         0x10f5  (4341) 3%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x2000]
@@ -136,90 +136,91 @@ External Symbols in Program Memory (by address):
                   0x0003a0                  __MathError
                   0x0003c0                  __T1Interrupt
                   0x0003f6                  __MI2C1Interrupt
-                  0x000646                  __DefaultInterrupt
-                  0x00064c                  _InputManager_getRot0
-                  0x000654                  _InputManager_getRot1
-                  0x00065c                  build/default/production/InputManager.o:_CN_handler
-                  0x000762                  _InputManager_initialize
-                  0x0007d2                  _InputManager_updateRots
-                  0x0007f0                  _InputManager_awkRotFlags
-                  0x0007fe                  _InputManager_clearCounts
-                  0x00083a                  _I2C1_Initialize
-                  0x000870                  _I2C1_ErrorCountGet
-                  0x0008ba                  _I2C1_MasterWrite
-                  0x0008ec                  _I2C1_MasterRead
-                  0x00091e                  _I2C1_MasterTRBInsert
-                  0x000996                  _I2C1_MasterReadTRBBuild
-                  0x0009c6                  _I2C1_MasterWriteTRBBuild
-                  0x0009ea                  _I2C1_MasterQueueIsEmpty
-                  0x000a00                  _I2C1_MasterQueueIsFull
-                  0x000a16                  _Time_update
-                  0x000a2e                  _Time_getMS
-                  0x000a38                  _Time_getS
-                  0x000a4c                  _TMR1_Initialize
-                  0x000a74                  _TMR1_Period16BitSet
-                  0x000a86                  _TMR1_Period16BitGet
-                  0x000a8e                  _TMR1_Counter16BitSet
-                  0x000aa0                  _TMR1_Counter16BitGet
-                  0x000aae                  _TMR1_SetInterruptHandler
-                  0x000abe                  _TMR1_Start
-                  0x000ace                  _TMR1_Stop
-                  0x000ad8                  _TMR1_GetElapsedThenClear
-                  0x000af0                  _TMR1_SoftwareCounterGet
-                  0x000afc                  _TMR1_SoftwareCounterClear
-                  0x000b08                  _PIN_MANAGER_Initialize
-                  0x000b84                  _CN_SetInterruptHandler
-                  0x000b94                  _CN_SetIOCInterruptHandler
-                  0x000ba0                  _sendToPot
-                  0x000bc2                  _AnalogOutManager_initialize
-                  0x000be4                  _AnalogOutManager_update
-                  0x000c24                  _CLOCK_Initialize
-                  0x000c5c                  _INTERRUPT_Initialize
-                  0x000c80                  _main
-                  0x000cbc                  _SYSTEM_Initialize
+                  0x00066c                  __DefaultInterrupt
+                  0x000672                  _InputManager_getRot0
+                  0x00067a                  _InputManager_getRot1
+                  0x000682                  build/default/production/InputManager.o:_CN_handler
+                  0x000788                  _InputManager_initialize
+                  0x0007f8                  _InputManager_updateRots
+                  0x000816                  _InputManager_awkRotFlags
+                  0x000824                  _InputManager_clearCounts
+                  0x000860                  _I2C1_Initialize
+                  0x000896                  _I2C1_ErrorCountGet
+                  0x0008e0                  _I2C1_MasterWrite
+                  0x000912                  _I2C1_MasterRead
+                  0x000944                  _I2C1_MasterTRBInsert
+                  0x0009bc                  _I2C1_MasterReadTRBBuild
+                  0x0009ec                  _I2C1_MasterWriteTRBBuild
+                  0x000a10                  _I2C1_MasterQueueIsEmpty
+                  0x000a26                  _I2C1_MasterQueueIsFull
+                  0x000a3c                  _Time_update
+                  0x000a54                  _Time_getMS
+                  0x000a5e                  _Time_getS
+                  0x000a72                  _TMR1_Initialize
+                  0x000a9a                  _TMR1_Period16BitSet
+                  0x000aac                  _TMR1_Period16BitGet
+                  0x000ab4                  _TMR1_Counter16BitSet
+                  0x000ac6                  _TMR1_Counter16BitGet
+                  0x000ad4                  _TMR1_SetInterruptHandler
+                  0x000ae4                  _TMR1_Start
+                  0x000af4                  _TMR1_Stop
+                  0x000afe                  _TMR1_GetElapsedThenClear
+                  0x000b16                  _TMR1_SoftwareCounterGet
+                  0x000b22                  _TMR1_SoftwareCounterClear
+                  0x000b2e                  _sendToPot
+                  0x000b50                  _readFromPot
+                  0x000b6e                  _AnalogOutManager_initialize
+                  0x000bc6                  _AnalogOutManager_update
+                  0x000bcc                  _PIN_MANAGER_Initialize
+                  0x000c46                  _CN_SetInterruptHandler
+                  0x000c56                  _CN_SetIOCInterruptHandler
+                  0x000c9c                  _CLOCK_Initialize
+                  0x000cd4                  _INTERRUPT_Initialize
+                  0x000d02                  _main
+                  0x000d3e                  _SYSTEM_Initialize
 
 External Symbols in Program Memory (by name):
 
-                  0x000bc2                  _AnalogOutManager_initialize
-                  0x000be4                  _AnalogOutManager_update
-                  0x000c24                  _CLOCK_Initialize
-                  0x000b94                  _CN_SetIOCInterruptHandler
-                  0x000b84                  _CN_SetInterruptHandler
-                  0x000870                  _I2C1_ErrorCountGet
-                  0x00083a                  _I2C1_Initialize
-                  0x0009ea                  _I2C1_MasterQueueIsEmpty
-                  0x000a00                  _I2C1_MasterQueueIsFull
-                  0x0008ec                  _I2C1_MasterRead
-                  0x000996                  _I2C1_MasterReadTRBBuild
-                  0x00091e                  _I2C1_MasterTRBInsert
-                  0x0008ba                  _I2C1_MasterWrite
-                  0x0009c6                  _I2C1_MasterWriteTRBBuild
-                  0x000c5c                  _INTERRUPT_Initialize
-                  0x0007f0                  _InputManager_awkRotFlags
-                  0x0007fe                  _InputManager_clearCounts
-                  0x00064c                  _InputManager_getRot0
-                  0x000654                  _InputManager_getRot1
-                  0x000762                  _InputManager_initialize
-                  0x0007d2                  _InputManager_updateRots
-                  0x000b08                  _PIN_MANAGER_Initialize
-                  0x000cbc                  _SYSTEM_Initialize
-                  0x000aa0                  _TMR1_Counter16BitGet
-                  0x000a8e                  _TMR1_Counter16BitSet
-                  0x000ad8                  _TMR1_GetElapsedThenClear
-                  0x000a4c                  _TMR1_Initialize
-                  0x000a86                  _TMR1_Period16BitGet
-                  0x000a74                  _TMR1_Period16BitSet
-                  0x000aae                  _TMR1_SetInterruptHandler
-                  0x000afc                  _TMR1_SoftwareCounterClear
-                  0x000af0                  _TMR1_SoftwareCounterGet
-                  0x000abe                  _TMR1_Start
-                  0x000ace                  _TMR1_Stop
-                  0x000a2e                  _Time_getMS
-                  0x000a38                  _Time_getS
-                  0x000a16                  _Time_update
+                  0x000b6e                  _AnalogOutManager_initialize
+                  0x000bc6                  _AnalogOutManager_update
+                  0x000c9c                  _CLOCK_Initialize
+                  0x000c56                  _CN_SetIOCInterruptHandler
+                  0x000c46                  _CN_SetInterruptHandler
+                  0x000896                  _I2C1_ErrorCountGet
+                  0x000860                  _I2C1_Initialize
+                  0x000a10                  _I2C1_MasterQueueIsEmpty
+                  0x000a26                  _I2C1_MasterQueueIsFull
+                  0x000912                  _I2C1_MasterRead
+                  0x0009bc                  _I2C1_MasterReadTRBBuild
+                  0x000944                  _I2C1_MasterTRBInsert
+                  0x0008e0                  _I2C1_MasterWrite
+                  0x0009ec                  _I2C1_MasterWriteTRBBuild
+                  0x000cd4                  _INTERRUPT_Initialize
+                  0x000816                  _InputManager_awkRotFlags
+                  0x000824                  _InputManager_clearCounts
+                  0x000672                  _InputManager_getRot0
+                  0x00067a                  _InputManager_getRot1
+                  0x000788                  _InputManager_initialize
+                  0x0007f8                  _InputManager_updateRots
+                  0x000bcc                  _PIN_MANAGER_Initialize
+                  0x000d3e                  _SYSTEM_Initialize
+                  0x000ac6                  _TMR1_Counter16BitGet
+                  0x000ab4                  _TMR1_Counter16BitSet
+                  0x000afe                  _TMR1_GetElapsedThenClear
+                  0x000a72                  _TMR1_Initialize
+                  0x000aac                  _TMR1_Period16BitGet
+                  0x000a9a                  _TMR1_Period16BitSet
+                  0x000ad4                  _TMR1_SetInterruptHandler
+                  0x000b22                  _TMR1_SoftwareCounterClear
+                  0x000b16                  _TMR1_SoftwareCounterGet
+                  0x000ae4                  _TMR1_Start
+                  0x000af4                  _TMR1_Stop
+                  0x000a54                  _Time_getMS
+                  0x000a5e                  _Time_getS
+                  0x000a3c                  _Time_update
                   0x000380                  __AddressError
                   0x000310                  __CNInterrupt
-                  0x000646                  __DefaultInterrupt
+                  0x00066c                  __DefaultInterrupt
                   0x0003f6                  __MI2C1Interrupt
                   0x0003a0                  __MathError
                   0x00033e                  __OscillatorFail
@@ -229,9 +230,10 @@ External Symbols in Program Memory (by name):
                   0x000252                  __data_init_da
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x000c80                  _main
-                  0x000ba0                  _sendToPot
-                  0x00065c                  build/default/production/InputManager.o:_CN_handler
+                  0x000d02                  _main
+                  0x000b50                  _readFromPot
+                  0x000b2e                  _sendToPot
+                  0x000682                  build/default/production/InputManager.o:_CN_handler
 
 Memory Configuration
 
@@ -259,8 +261,8 @@ LOAD build/default/production/mcc_generated_files/system.o
 LOAD build/default/production/mcc_generated_files/tmr1.o
 LOAD build/default/production/Main.o
 LOAD build/default/production/InputManager.o
-LOAD build/default/production/mcc_generated_files/i2c1.o
 LOAD build/default/production/AnalogOutManager.o
+LOAD build/default/production/mcc_generated_files/i2c1.o
                     0x0001                  __MPLAB_BUILD = 0x1
 LOAD pPIC24Fxxx
 LOAD c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libfx-elf.a
@@ -281,7 +283,7 @@ LOAD c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libfx-elf.a
                   0x000002          0x2 SHORT 0x0 ((ABSOLUTE (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000200        0x44c
+.text             0x000200        0x472
  *(.init)
  .init            0x000200         0x4c c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\liblega-pic30-elf.a(crt0_extended24.o)
                   0x000200                  __resetPRI
@@ -303,18 +305,18 @@ LOAD c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\libfx-elf.a
                   0x0003a0                  __MathError
  .isr.text        0x0003c0         0x36 build/default/production/mcc_generated_files/tmr1.o
                   0x0003c0                  __T1Interrupt
- .isr.text        0x0003f6        0x250 build/default/production/mcc_generated_files/i2c1.o
+ .isr.text        0x0003f6        0x276 build/default/production/mcc_generated_files/i2c1.o
                   0x0003f6                  __MI2C1Interrupt
- .isr             0x000646          0x4 default_isr
-                  0x000646                  __DefaultInterrupt
+ .isr             0x00066c          0x4 default_isr
+                  0x00066c                  __DefaultInterrupt
  *(.libc)
  *(.libm)
  *(.libdsp)
  *(.lib*)
  .libpic30_crt_start_mode
-                  0x00064a          0x2 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\liblega-pic30-elf.a(crt_start_mode_normalda.Leo)
-                  0x00064a                  __crt_start_mode
-                  0x00064a                  __crt_start_mode_normal
+                  0x000670          0x2 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\liblega-pic30-elf.a(crt_start_mode_normalda.Leo)
+                  0x000670                  __crt_start_mode
+                  0x000670                  __crt_start_mode_normal
 
 usercode
  *(usercode)
@@ -334,21 +336,21 @@ __CONFIG1
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x471c
+.debug_info       0x000000       0x48fb
  *(.debug_info)
- .debug_info      0x000000        0x5c9 build/default/production/mcc_generated_files/interrupt_manager.o
- .debug_info      0x0005c9        0x2ab build/default/production/mcc_generated_files/clock.o
- .debug_info      0x000874        0xd2e build/default/production/mcc_generated_files/pin_manager.o
- .debug_info      0x0015a2        0x392 build/default/production/mcc_generated_files/traps.o
- .debug_info      0x001934        0x329 build/default/production/mcc_generated_files/system.o
- .debug_info      0x001c5d        0xa14 build/default/production/mcc_generated_files/tmr1.o
- .debug_info      0x002671        0x57e build/default/production/Main.o
- .debug_info      0x002bef        0x7ac build/default/production/InputManager.o
- .debug_info      0x00339b       0x106e build/default/production/mcc_generated_files/i2c1.o
- .debug_info      0x004409        0x313 build/default/production/AnalogOutManager.o
+ .debug_info      0x000000        0x5e2 build/default/production/mcc_generated_files/interrupt_manager.o
+ .debug_info      0x0005e2        0x2c4 build/default/production/mcc_generated_files/clock.o
+ .debug_info      0x0008a6        0xd47 build/default/production/mcc_generated_files/pin_manager.o
+ .debug_info      0x0015ed        0x3ab build/default/production/mcc_generated_files/traps.o
+ .debug_info      0x001998        0x342 build/default/production/mcc_generated_files/system.o
+ .debug_info      0x001cda        0xa2d build/default/production/mcc_generated_files/tmr1.o
+ .debug_info      0x002707        0x597 build/default/production/Main.o
+ .debug_info      0x002c9e        0x7c5 build/default/production/InputManager.o
+ .debug_info      0x003463        0x3f9 build/default/production/AnalogOutManager.o
+ .debug_info      0x00385c       0x109f build/default/production/mcc_generated_files/i2c1.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0xb3d
+.debug_abbrev     0x000000        0xb68
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0xb4 build/default/production/mcc_generated_files/interrupt_manager.o
  .debug_abbrev    0x0000b4          0x1 build/default/production/mcc_generated_files/mcc.o
@@ -359,24 +361,24 @@ __CONFIG1
  .debug_abbrev    0x0003fe        0x1c4 build/default/production/mcc_generated_files/tmr1.o
  .debug_abbrev    0x0005c2        0x119 build/default/production/Main.o
  .debug_abbrev    0x0006db        0x187 build/default/production/InputManager.o
- .debug_abbrev    0x000862        0x212 build/default/production/mcc_generated_files/i2c1.o
- .debug_abbrev    0x000a74         0xc9 build/default/production/AnalogOutManager.o
+ .debug_abbrev    0x000862         0xf4 build/default/production/AnalogOutManager.o
+ .debug_abbrev    0x000956        0x212 build/default/production/mcc_generated_files/i2c1.o
 
-.debug_line       0x000000        0xcf5
+.debug_line       0x000000        0xc37
  *(.debug_line)
- .debug_line      0x000000        0x12a build/default/production/mcc_generated_files/interrupt_manager.o
- .debug_line      0x00012a         0x1a build/default/production/mcc_generated_files/mcc.o
- .debug_line      0x000144        0x127 build/default/production/mcc_generated_files/clock.o
- .debug_line      0x00026b        0x16c build/default/production/mcc_generated_files/pin_manager.o
- .debug_line      0x0003d7        0x14e build/default/production/mcc_generated_files/traps.o
- .debug_line      0x000525        0x122 build/default/production/mcc_generated_files/system.o
- .debug_line      0x000647        0x171 build/default/production/mcc_generated_files/tmr1.o
- .debug_line      0x0007b8        0x123 build/default/production/Main.o
- .debug_line      0x0008db        0x15c build/default/production/InputManager.o
- .debug_line      0x000a37        0x206 build/default/production/mcc_generated_files/i2c1.o
- .debug_line      0x000c3d         0xb8 build/default/production/AnalogOutManager.o
+ .debug_line      0x000000        0x113 build/default/production/mcc_generated_files/interrupt_manager.o
+ .debug_line      0x000113         0x1a build/default/production/mcc_generated_files/mcc.o
+ .debug_line      0x00012d        0x10f build/default/production/mcc_generated_files/clock.o
+ .debug_line      0x00023c        0x154 build/default/production/mcc_generated_files/pin_manager.o
+ .debug_line      0x000390        0x136 build/default/production/mcc_generated_files/traps.o
+ .debug_line      0x0004c6        0x10a build/default/production/mcc_generated_files/system.o
+ .debug_line      0x0005d0        0x159 build/default/production/mcc_generated_files/tmr1.o
+ .debug_line      0x000729        0x10b build/default/production/Main.o
+ .debug_line      0x000834        0x144 build/default/production/InputManager.o
+ .debug_line      0x000978         0xc1 build/default/production/AnalogOutManager.o
+ .debug_line      0x000a39        0x1fe build/default/production/mcc_generated_files/i2c1.o
 
-.debug_frame      0x000000        0x740
+.debug_frame      0x000000        0x75a
  *(.debug_frame)
  .debug_frame     0x000000         0x2e build/default/production/mcc_generated_files/interrupt_manager.o
  .debug_frame     0x00002e         0x2e build/default/production/mcc_generated_files/clock.o
@@ -386,10 +388,10 @@ __CONFIG1
  .debug_frame     0x000284        0x1d8 build/default/production/mcc_generated_files/tmr1.o
  .debug_frame     0x00045c         0x2e build/default/production/Main.o
  .debug_frame     0x00048a         0xe4 build/default/production/InputManager.o
- .debug_frame     0x00056e        0x170 build/default/production/mcc_generated_files/i2c1.o
- .debug_frame     0x0006de         0x62 build/default/production/AnalogOutManager.o
+ .debug_frame     0x00056e         0x7c build/default/production/AnalogOutManager.o
+ .debug_frame     0x0005ea        0x170 build/default/production/mcc_generated_files/i2c1.o
 
-.debug_str        0x000000        0x13d
+.debug_str        0x000000        0x152
  *(.debug_str)
  .debug_str       0x000000         0x12 build/default/production/mcc_generated_files/interrupt_manager.o
  .debug_str       0x000012         0x50 build/default/production/mcc_generated_files/pin_manager.o
@@ -398,7 +400,8 @@ __CONFIG1
  .debug_str       0x00007a         0x32 build/default/production/mcc_generated_files/tmr1.o
  .debug_str       0x0000ac         0x15 build/default/production/Main.o
  .debug_str       0x0000c1         0x29 build/default/production/InputManager.o
- .debug_str       0x0000ea         0x53 build/default/production/mcc_generated_files/i2c1.o
+ .debug_str       0x0000ea         0x15 build/default/production/AnalogOutManager.o
+ .debug_str       0x0000ff         0x53 build/default/production/mcc_generated_files/i2c1.o
 
 .debug_loc
  *(.debug_loc)
@@ -407,7 +410,7 @@ __CONFIG1
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000        0x55f
+                  0x000000        0x56f
  *(.debug_pubnames)
  .debug_pubnames
                   0x000000         0x2b build/default/production/mcc_generated_files/interrupt_manager.o
@@ -426,9 +429,9 @@ __CONFIG1
  .debug_pubnames
                   0x000332         0xc3 build/default/production/InputManager.o
  .debug_pubnames
-                  0x0003f5        0x103 build/default/production/mcc_generated_files/i2c1.o
+                  0x0003f5         0x77 build/default/production/AnalogOutManager.o
  .debug_pubnames
-                  0x0004f8         0x67 build/default/production/AnalogOutManager.o
+                  0x00046c        0x103 build/default/production/mcc_generated_files/i2c1.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -452,9 +455,9 @@ __CONFIG1
  .debug_aranges
                   0x0000a8         0x18 build/default/production/InputManager.o
  .debug_aranges
-                  0x0000c0         0x18 build/default/production/mcc_generated_files/i2c1.o
+                  0x0000c0         0x18 build/default/production/AnalogOutManager.o
  .debug_aranges
-                  0x0000d8         0x18 build/default/production/AnalogOutManager.o
+                  0x0000d8         0x18 build/default/production/mcc_generated_files/i2c1.o
                     0x0000                  WREG0 = 0x0
                     0x0000                  _WREG0 = 0x0
                     0x0002                  WREG1 = 0x2
@@ -2175,7 +2178,7 @@ LOAD default_isr
 LOAD data_init
 
 .debug_pubtypes
-                  0x0000f0        0x5a1
+                  0x0000f0        0x5c4
  .debug_pubtypes
                   0x0000f0         0x59 build/default/production/mcc_generated_files/interrupt_manager.o
  .debug_pubtypes
@@ -2193,38 +2196,38 @@ LOAD data_init
  .debug_pubtypes
                   0x00043f         0xd3 build/default/production/InputManager.o
  .debug_pubtypes
-                  0x000512        0x13c build/default/production/mcc_generated_files/i2c1.o
+                  0x000512         0x66 build/default/production/AnalogOutManager.o
  .debug_pubtypes
-                  0x00064e         0x43 build/default/production/AnalogOutManager.o
+                  0x000578        0x13c build/default/production/mcc_generated_files/i2c1.o
 
 __c30_signature
-                  0x000691         0x4e
+                  0x0006b4         0x4e
  __c30_signature
-                  0x000691          0x6 build/default/production/mcc_generated_files/interrupt_manager.o
+                  0x0006b4          0x6 build/default/production/mcc_generated_files/interrupt_manager.o
  __c30_signature
-                  0x000697          0x6 build/default/production/mcc_generated_files/mcc.o
+                  0x0006ba          0x6 build/default/production/mcc_generated_files/mcc.o
  __c30_signature
-                  0x00069d          0x6 build/default/production/mcc_generated_files/clock.o
+                  0x0006c0          0x6 build/default/production/mcc_generated_files/clock.o
  __c30_signature
-                  0x0006a3          0x6 build/default/production/mcc_generated_files/pin_manager.o
+                  0x0006c6          0x6 build/default/production/mcc_generated_files/pin_manager.o
  __c30_signature
-                  0x0006a9          0x6 build/default/production/mcc_generated_files/traps.o
+                  0x0006cc          0x6 build/default/production/mcc_generated_files/traps.o
  __c30_signature
-                  0x0006af          0x6 build/default/production/mcc_generated_files/system.o
+                  0x0006d2          0x6 build/default/production/mcc_generated_files/system.o
  __c30_signature
-                  0x0006b5          0x6 build/default/production/mcc_generated_files/tmr1.o
+                  0x0006d8          0x6 build/default/production/mcc_generated_files/tmr1.o
  __c30_signature
-                  0x0006bb          0x6 build/default/production/Main.o
+                  0x0006de          0x6 build/default/production/Main.o
  __c30_signature
-                  0x0006c1          0x6 build/default/production/InputManager.o
+                  0x0006e4          0x6 build/default/production/InputManager.o
  __c30_signature
-                  0x0006c7          0x6 build/default/production/mcc_generated_files/i2c1.o
+                  0x0006ea          0x6 build/default/production/AnalogOutManager.o
  __c30_signature
-                  0x0006cd          0x6 build/default/production/AnalogOutManager.o
+                  0x0006f0          0x6 build/default/production/mcc_generated_files/i2c1.o
  __c30_signature
-                  0x0006d3          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\liblega-pic30-elf.a(crt0_extended24.o)
+                  0x0006f6          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\liblega-pic30-elf.a(crt0_extended24.o)
  __c30_signature
-                  0x0006d9          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\liblega-pic30-elf.a(data_init_24.o)
+                  0x0006fc          0x6 c:/program files/microchip/xc16/v1.60/bin/bin/../../lib\liblega-pic30-elf.a(data_init_24.o)
 
 .nbss               0x0800         0x2a
  .nbss              0x0800         0x18 build/default/production/mcc_generated_files/i2c1.o
@@ -2298,62 +2301,63 @@ __c30_signature
  .ivt._MI2C1Interrupt
                   0x000036          0x2 build/default/production/mcc_generated_files/i2c1.o
 
-.text             0x00064c        0x59e
- .text            0x00064c        0x1ee build/default/production/InputManager.o
-                  0x00064c                  _InputManager_getRot0
-                  0x000654                  _InputManager_getRot1
-                  0x00065c                  build/default/production/InputManager.o:_CN_handler
-                  0x000762                  _InputManager_initialize
-                  0x0007d2                  _InputManager_updateRots
-                  0x0007f0                  _InputManager_awkRotFlags
-                  0x0007fe                  _InputManager_clearCounts
- .text            0x00083a        0x1dc build/default/production/mcc_generated_files/i2c1.o
-                  0x00083a                  _I2C1_Initialize
-                  0x000870                  _I2C1_ErrorCountGet
-                  0x0008ba                  _I2C1_MasterWrite
-                  0x0008ec                  _I2C1_MasterRead
-                  0x00091e                  _I2C1_MasterTRBInsert
-                  0x000996                  _I2C1_MasterReadTRBBuild
-                  0x0009c6                  _I2C1_MasterWriteTRBBuild
-                  0x0009ea                  _I2C1_MasterQueueIsEmpty
-                  0x000a00                  _I2C1_MasterQueueIsFull
- .text            0x000a16         0xf2 build/default/production/mcc_generated_files/tmr1.o
-                  0x000a16                  _Time_update
-                  0x000a2e                  _Time_getMS
-                  0x000a38                  _Time_getS
-                  0x000a4c                  _TMR1_Initialize
-                  0x000a74                  _TMR1_Period16BitSet
-                  0x000a86                  _TMR1_Period16BitGet
-                  0x000a8e                  _TMR1_Counter16BitSet
-                  0x000aa0                  _TMR1_Counter16BitGet
-                  0x000aa8                  _TMR1_CallBack
-                  0x000aae                  _TMR1_SetInterruptHandler
-                  0x000abe                  _TMR1_Start
-                  0x000ace                  _TMR1_Stop
-                  0x000ad8                  _TMR1_GetElapsedThenClear
-                  0x000af0                  _TMR1_SoftwareCounterGet
-                  0x000afc                  _TMR1_SoftwareCounterClear
- .text            0x000b08         0x98 build/default/production/mcc_generated_files/pin_manager.o
-                  0x000b08                  _PIN_MANAGER_Initialize
-                  0x000b7e                  _CN_CallBack
-                  0x000b84                  _CN_SetInterruptHandler
-                  0x000b94                  _CN_SetIOCInterruptHandler
- .text            0x000ba0         0x4a build/default/production/AnalogOutManager.o
-                  0x000ba0                  _sendToPot
-                  0x000bc2                  _AnalogOutManager_initialize
-                  0x000be4                  _AnalogOutManager_update
+.text             0x000672        0x5f0
+ .text            0x000672        0x1ee build/default/production/InputManager.o
+                  0x000672                  _InputManager_getRot0
+                  0x00067a                  _InputManager_getRot1
+                  0x000682                  build/default/production/InputManager.o:_CN_handler
+                  0x000788                  _InputManager_initialize
+                  0x0007f8                  _InputManager_updateRots
+                  0x000816                  _InputManager_awkRotFlags
+                  0x000824                  _InputManager_clearCounts
+ .text            0x000860        0x1dc build/default/production/mcc_generated_files/i2c1.o
+                  0x000860                  _I2C1_Initialize
+                  0x000896                  _I2C1_ErrorCountGet
+                  0x0008e0                  _I2C1_MasterWrite
+                  0x000912                  _I2C1_MasterRead
+                  0x000944                  _I2C1_MasterTRBInsert
+                  0x0009bc                  _I2C1_MasterReadTRBBuild
+                  0x0009ec                  _I2C1_MasterWriteTRBBuild
+                  0x000a10                  _I2C1_MasterQueueIsEmpty
+                  0x000a26                  _I2C1_MasterQueueIsFull
+ .text            0x000a3c         0xf2 build/default/production/mcc_generated_files/tmr1.o
+                  0x000a3c                  _Time_update
+                  0x000a54                  _Time_getMS
+                  0x000a5e                  _Time_getS
+                  0x000a72                  _TMR1_Initialize
+                  0x000a9a                  _TMR1_Period16BitSet
+                  0x000aac                  _TMR1_Period16BitGet
+                  0x000ab4                  _TMR1_Counter16BitSet
+                  0x000ac6                  _TMR1_Counter16BitGet
+                  0x000ace                  _TMR1_CallBack
+                  0x000ad4                  _TMR1_SetInterruptHandler
+                  0x000ae4                  _TMR1_Start
+                  0x000af4                  _TMR1_Stop
+                  0x000afe                  _TMR1_GetElapsedThenClear
+                  0x000b16                  _TMR1_SoftwareCounterGet
+                  0x000b22                  _TMR1_SoftwareCounterClear
+ .text            0x000b2e         0x9e build/default/production/AnalogOutManager.o
+                  0x000b2e                  _sendToPot
+                  0x000b50                  _readFromPot
+                  0x000b6e                  _AnalogOutManager_initialize
+                  0x000bc6                  _AnalogOutManager_update
+ .text            0x000bcc         0x96 build/default/production/mcc_generated_files/pin_manager.o
+                  0x000bcc                  _PIN_MANAGER_Initialize
+                  0x000c40                  _CN_CallBack
+                  0x000c46                  _CN_SetInterruptHandler
+                  0x000c56                  _CN_SetIOCInterruptHandler
 
-.dinit            0x000bea         0x3a
- .dinit           0x000bea         0x3a data_init
+.dinit            0x000c62         0x3a
+ .dinit           0x000c62         0x3a data_init
 
-.text             0x000c24         0xa8
- .text            0x000c24         0x38 build/default/production/mcc_generated_files/clock.o
-                  0x000c24                  _CLOCK_Initialize
- .text            0x000c5c         0x24 build/default/production/mcc_generated_files/interrupt_manager.o
-                  0x000c5c                  _INTERRUPT_Initialize
- .text            0x000c80         0x24 build/default/production/Main.o
-                  0x000c80                  _main
- .text            0x000ca4         0x18 build/default/production/mcc_generated_files/traps.o
-                  0x000ca4                  _TRAPS_halt_on_error
- .text            0x000cbc         0x10 build/default/production/mcc_generated_files/system.o
-                  0x000cbc                  _SYSTEM_Initialize
+.text             0x000c9c         0xb2
+ .text            0x000c9c         0x38 build/default/production/mcc_generated_files/clock.o
+                  0x000c9c                  _CLOCK_Initialize
+ .text            0x000cd4         0x2e build/default/production/mcc_generated_files/interrupt_manager.o
+                  0x000cd4                  _INTERRUPT_Initialize
+ .text            0x000d02         0x24 build/default/production/Main.o
+                  0x000d02                  _main
+ .text            0x000d26         0x18 build/default/production/mcc_generated_files/traps.o
+                  0x000d26                  _TRAPS_halt_on_error
+ .text            0x000d3e         0x10 build/default/production/mcc_generated_files/system.o
+                  0x000d3e                  _SYSTEM_Initialize
