@@ -69,11 +69,11 @@
 #pragma config WDTCLK = LPRC    //WDT Clock Source Select bits->WDT uses LPRC
 #pragma config OSCIOFCN = ON    //OSCO Pin Configuration->OSCO/CLKO/RC15 functions as port I/O (RC15)
 #pragma config FCKSM = CSECME    //Clock Switching and Fail-Safe Clock Monitor Configuration bits->Clock switching is enabled, Fail-Safe Clock Monitor is enabled
-#pragma config FNOSC = FRCPLL    //Initial Oscillator Select->Fast RC Oscillator with PLL module (FRCPLL)
+#pragma config FNOSC = FRCDIV    //Initial Oscillator Select->Fast RC Oscillator with Postscaler (FRCDIV)
 #pragma config ALTADREF = AVREF_RB    //External 12-Bit A/D Reference Location Select bit->AVREF+/AVREF- are mapped to RB0/RB1
 #pragma config ALTCVREF = CVREF_RB    //External Comparator Reference Location Select bit->CVREF+/CVREF- are mapped to RB0/RB1
 #pragma config WDTCMX = WDTCLK    //WDT Clock Source Select bits->WDT clock source is determined by the WDTCLK Configuration bits
-#pragma config IESO = ON    //Internal External Switchover->Enabled
+#pragma config IESO = OFF    //Internal External Switchover->Disabled
 
 // CONFIG1
 #pragma config WDTPS = PS32768    //Watchdog Timer Postscaler Select->1:32768
@@ -91,19 +91,15 @@
 #include "system.h"
 #include "interrupt_manager.h"
 #include "traps.h"
-#include "spi1.h"
-#include "i2c1.h"
-#include "tmr2.h"
 #include "tmr1.h"
+#include "i2c1.h"
 
 void SYSTEM_Initialize(void)
 {
     PIN_MANAGER_Initialize();
     INTERRUPT_Initialize();
     CLOCK_Initialize();
-    SPI1_Initialize();
     I2C1_Initialize();
-    TMR2_Initialize();
     TMR1_Initialize();
 }
 

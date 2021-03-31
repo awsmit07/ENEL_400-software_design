@@ -68,7 +68,7 @@ void PIN_MANAGER_Initialize (void)
      ***************************************************************************/
     LATB = 0x0000;
     LATC = 0x0000;
-    LATD = 0x0000;
+    LATD = 0x0001;
     LATE = 0x0000;
     LATF = 0x0000;
     LATG = 0x0000;
@@ -78,7 +78,7 @@ void PIN_MANAGER_Initialize (void)
      ***************************************************************************/
     TRISB = 0xF0FF;
     TRISC = 0x1000;
-    TRISD = 0x0FDF;
+    TRISD = 0x0EC0;
     TRISE = 0x00FF;
     TRISF = 0x00BB;
     TRISG = 0x03CC;
@@ -113,13 +113,24 @@ void PIN_MANAGER_Initialize (void)
      * Setting the Analog/Digital Configuration SFR(s)
      ***************************************************************************/
     ANSB = 0x003F;
-    ANSD = 0xF9DF;
+    ANSD = 0xF8C0;
     ANSE = 0x00F0;
     ANSF = 0x0089;
     ANSG = 0x03C0;
     
     //Setting UTRDIS bit to use RG2 and RG3 as GPIO 
     U1CNFG2bits.UTRDIS = 1;
+    
+    /****************************************************************************
+     * Set the PPS
+     ***************************************************************************/
+    __builtin_write_OSCCONL(OSCCON & 0xbf); // unlock PPS
+
+    RPOR12bits.RP24R = 0x0008;    //RD1->SPI1:SCK1OUT
+    RPOR11bits.RP23R = 0x0007;    //RD2->SPI1:SDO1
+    RPOR5bits.RP11R = 0x0009;    //RD0->SPI1:SS1OUT
+
+    __builtin_write_OSCCONL(OSCCON | 0x40); // lock PPS
     
     /****************************************************************************
      * Interrupt On Change: any

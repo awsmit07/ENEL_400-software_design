@@ -129,7 +129,6 @@ typedef struct
 typedef enum
 {
     S_MASTER_IDLE,
-    S_MASTER_RESET_SLAVES,
     S_MASTER_RESTART,
     S_MASTER_SEND_ADDR,
     S_MASTER_SEND_DATA,
@@ -205,8 +204,8 @@ void I2C1_Initialize(void)
     i2c1_object.i2cErrors = 0;
     
     // initialize the hardware
-    // Baud Rate Generator Value: I2CBRG 19;   
-    I2C1BRG = 0x13;
+    // Baud Rate Generator Value: I2CBRG 39;   
+    I2C1BRG = 0x27;
     // ACKEN disabled; STREN disabled; GCEN disabled; SMEN disabled; DISSLW enabled; I2CSIDL disabled; ACKDT Sends ACK; SCLREL Holds; RSEN disabled; IPMIEN disabled; A10M 7 Bit; PEN disabled; RCEN disabled; SEN disabled; I2CEN enabled; 
     I2C1CON = 0x8000;
     // BCL disabled; P disabled; S disabled; I2COV disabled; IWCOL disabled; 
@@ -391,12 +390,7 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _MI2C1Interrupt ( void )
             }
 
             // check for 10-bit address
-            if(i2c_address == 0x00ff)
-            {
-                I2C1_TRANSMIT_REG = i2c_address;
-                i2c1_state = S_MASTER_RESET_SLAVES;
-            }
-            else if(i2c_address > 0x00FF)
+            if(i2c_address > 0x00FF)
             {
                 // we have a 10 bit address
                 // send bits<9:8>
@@ -420,14 +414,7 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _MI2C1Interrupt ( void )
                 }
             }
             break;
-        case S_MASTER_RESET_SLAVES:
-            if(I2C1STATbits.TBF)
-            {
-                break;
-            }
-            I2C1_START_CONDITION_ENABLE_BIT = 1;
-            I2C1_FunctionComplete();
-            break;
+
         case S_MASTER_SEND_DATA:
 
             // Make sure the previous byte was acknowledged

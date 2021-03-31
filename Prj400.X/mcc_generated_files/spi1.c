@@ -64,10 +64,10 @@ uint16_t SPI1_ExchangeBuffer(uint8_t *pTransmitData, uint16_t byteCount, uint8_t
 
 void SPI1_Initialize (void)
 {
-    // MSTEN Master; DISSDO disabled; PPRE 64:1; SPRE 8:1; MODE16 enabled; SMP Middle; DISSCK disabled; CKP Idle:Low, Active:High; CKE Idle to Active; SSEN disabled; 
-    SPI1CON1 = 0x420;
-    // SPIFSD disabled; SPIBEN enabled; FRMPOL disabled; FRMDLY disabled; FRMEN disabled; 
-    SPI1CON2 = 0x01;
+    // MSTEN Master; DISSDO disabled; PPRE 64:1; SPRE 8:1; MODE16 enabled; SMP Middle; DISSCK disabled; CKP Idle:High, Active:Low; CKE Idle to Active; SSEN disabled; 
+    SPI1CON1 = 0x460;
+    // SPIFSD enabled; SPIBEN enabled; FRMPOL enabled; FRMDLY enabled; FRMEN enabled; 
+    SPI1CON2 = 0xE003;
     // SISEL SPI_INT_SPIRBF; SPIROV disabled; SPIEN enabled; SRXMPT disabled; SPISIDL disabled; SPIBEC disabled; 
     SPI1STAT = 0x800C;
 }
@@ -81,7 +81,7 @@ void SPI1_Exchange( uint8_t *pTransmitData, uint8_t *pReceiveData )
 
     SPI1BUF = *((uint16_t*)pTransmitData);
 
-    while ( SPI1STATbits.SRXMPT == true);
+    //while ( SPI1STATbits.SRXMPT == true);
 
     *((uint16_t*)pReceiveData) = SPI1BUF;
 

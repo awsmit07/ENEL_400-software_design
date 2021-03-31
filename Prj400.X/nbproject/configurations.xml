@@ -16,9 +16,11 @@
         <itemPath>mcc_generated_files/tmr1.h</itemPath>
         <itemPath>mcc_generated_files/i2c1.h</itemPath>
         <itemPath>mcc_generated_files/spi1.h</itemPath>
+        <itemPath>mcc_generated_files/tmr2.h</itemPath>
       </logicalFolder>
       <itemPath>Utils.h</itemPath>
       <itemPath>InputManager.h</itemPath>
+      <itemPath>AnalogOutManager.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -39,9 +41,11 @@
         <itemPath>mcc_generated_files/tmr1.c</itemPath>
         <itemPath>mcc_generated_files/i2c1.c</itemPath>
         <itemPath>mcc_generated_files/spi1.c</itemPath>
+        <itemPath>mcc_generated_files/tmr2.c</itemPath>
       </logicalFolder>
       <itemPath>Main.c</itemPath>
       <itemPath>InputManager.c</itemPath>
+      <itemPath>AnalogOutManager.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -49,8 +53,6 @@
       <itemPath>Makefile</itemPath>
       <itemPath>MyConfig.mc3</itemPath>
     </logicalFolder>
-    <itemPath>AnalogOutManager.c</itemPath>
-    <itemPath>AnalogOutManager.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>.</Elem>

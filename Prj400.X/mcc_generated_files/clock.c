@@ -48,8 +48,8 @@
 
 void CLOCK_Initialize(void)
 {
-    // CPDIV 1:1; PLLEN disabled; RCDIV FRC/2; DOZE 1:8; DOZEN disabled; ROI disabled; 
-    CLKDIV = 0x3100;
+    // CPDIV 1:1; PLLEN disabled; RCDIV FRC/1; DOZE 1:8; DOZEN disabled; ROI disabled; 
+    CLKDIV = 0x3000;
     // STOR disabled; STORPOL Interrupt when STOR is 1; STSIDL disabled; STLPOL Interrupt when STLOCK is 1; STLOCK disabled; STSRC SOSC; STEN disabled; TUN Center frequency; 
     OSCTUN = 0x00;
     // ROEN disabled; ROSEL FOSC; RODIV 0; ROSSLP disabled; 
@@ -68,7 +68,7 @@ void CLOCK_Initialize(void)
     PMD6 = 0x00;
     // DMA1MD enabled; DMA0MD enabled; 
     PMD7 = 0x00;
-    // CF no clock failure; NOSC FRCDIV; SOSCEN disabled; POSCEN disabled; CLKLOCK unlocked; OSWEN Switch is Complete; IOLOCK not-active; 
-    __builtin_write_OSCCONH((uint8_t) (0x07));
+    // CF no clock failure; NOSC FRCPLL; SOSCEN disabled; POSCEN disabled; CLKLOCK unlocked; OSWEN Switch is Complete; IOLOCK not-active; 
+    __builtin_write_OSCCONH((uint8_t) (0x01));
     __builtin_write_OSCCONL((uint8_t) (0x00));
 }
