@@ -63,6 +63,11 @@ uint16_t Time_getS(){
     return Time_ms >> 10;
 }
 
+void Time_delayMS(uint8_t ms){
+    uint8_t stime = TMR1_SoftwareCounterGet();
+    while(TMR1_SoftwareCounterGet() - stime < ms);
+}
+
 /**
  Section: File specific functions
 */

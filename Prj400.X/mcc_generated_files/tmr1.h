@@ -68,6 +68,7 @@
         void Time_update();
         uint32_t Time_getMS();
         uint16_t Time_getS();
+        void Time_delayMS(uint8_t ms);
         
         
 /**
@@ -113,7 +114,6 @@
     </code>
 */
 void TMR1_Initialize (void);
-
 
 /**
   @Summary
