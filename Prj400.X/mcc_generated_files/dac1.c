@@ -1,18 +1,19 @@
-/**
-  @Generated PIC24 / dsPIC33 / PIC32MM MCUs Header File
 
-  @Company:
+/**
+  DAC1 Generated Driver File 
+
+  @Company
     Microchip Technology Inc.
 
-  @File Name:
-    mcc.h
+  @File Name
+    dac1.c
 
-  @Summary:
-    This is the mcc.h file generated using PIC24 / dsPIC33 / PIC32MM MCUs
+  @Summary
+    This is the generated driver implementation file for the DAC1 driver using PIC24 / dsPIC33 / PIC32MM MCUs
 
-  @Description:
-    This file will be removed in future MCC releases. Use system.h instead.
-    Generation Information :
+  @Description
+    This header file provides implementations for driver APIs for DAC1. 
+    Generation Information : 
         Product Revision  :  PIC24 / dsPIC33 / PIC32MM MCUs - 1.170.0
         Device            :  PIC24FJ128GC006
     The generated drivers are tested against the following:
@@ -42,36 +43,45 @@
     TERMS.
 */
 
-#ifndef MCC_H
-#define	MCC_H
-#include <xc.h>
-#include "system.h"
-#include "clock.h"
-#include "pin_manager.h"
-#include <stdint.h>
-#include <stdbool.h>
-
-#include "spi1.h"
-<<<<<<< HEAD
-#include "i2c1.h"
-#include "dac1.h"
-#include "interrupt_manager.h"
-#include "traps.h"
-=======
-#include "tmr2.h"
->>>>>>> origin/master
-#include "tmr1.h"
-<<<<<<< HEAD
-#include "tmr2.h"
-=======
-#include "i2c1.h"
-#include "interrupt_manager.h"
-#include "traps.h"
->>>>>>> origin/master
-
-#warning "This file will be removed in future MCC releases. Use system.h instead."
-
-#endif	/* MCC_H */
 /**
- End of File
+  Section: Included Files
+*/        
+   
+#include "dac1.h"
+
+/**
+  Section: Driver Interface
 */
+
+void DAC1_Initialize(void)
+{
+    // DACREF AVDD; DACFM Right; DACEN enabled; DACTSEL CMP1; DACTRIG disabled; DACSLP disabled; DACSIDL disabled; 
+    DAC1CON = 0x8002;
+    
+}
+
+void DAC1_OutputSet(uint16_t inputData)
+{
+    DAC1DAT  = inputData;
+}
+
+void __attribute__ ((weak)) DAC1_CallBack(void)
+{
+    // Add your custom callback code here
+}
+
+void DAC1_Tasks ( void )
+{
+	if(IFS4bits.DAC1IF)
+	{
+		// DAC1 callback function 
+		DAC1_CallBack();
+		
+		// clear the DAC1 interrupt flag
+		IFS4bits.DAC1IF = 0;
+	}
+}
+/**
+  End of File
+*/ 
+

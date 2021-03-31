@@ -53,8 +53,7 @@
 uint32_t Time_ms;
 
 void Time_update(){
-    Time_ms += TMR1_SoftwareCounterGet();
-    TMR1_SoftwareCounterClear();
+    Time_ms++;
 }
 uint32_t Time_getMS(){
     return Time_ms;
@@ -117,12 +116,13 @@ void TMR1_Initialize (void)
     //TCKPS 1:8; TON enabled; TSIDL disabled; TCS FOSC/2; TECS SOSC; TSYNC disabled; TGATE disabled; 
     T1CON = 0x8010;
 
+    TMR1_SetInterruptHandler(&Time_update);
+    
     if(TMR1_InterruptHandler == NULL)
     {
-        //TMR1_SetInterruptHandler(&TMR1_CallBack);
-        Time_update();
+        TMR1_SetInterruptHandler(&TMR1_CallBack);
     }
-
+    
     IFS0bits.T1IF = false;
     IEC0bits.T1IE = true;
 	

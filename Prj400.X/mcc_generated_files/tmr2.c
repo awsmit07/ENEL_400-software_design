@@ -90,10 +90,10 @@ void TMR2_Initialize (void)
 {
     //TMR2 0; 
     TMR2 = 0x00;
-    //Period = 0.000004 s; Frequency = 4000000 Hz; PR2 0; 
-    PR2 = 0x00;
-    //TCKPS 1:8; T32 16 Bit; TON enabled; TSIDL disabled; TCS FOSC/2; TECS SOSC; TGATE disabled; 
-    T2CON = 0x8010;
+    //Period = 0.000001 s; Frequency = 4000000 Hz; PR2 3; 
+    PR2 = 0x03;
+    //TCKPS 1:1; T32 16 Bit; TON enabled; TSIDL disabled; TCS FOSC/2; TECS SOSC; TGATE disabled; 
+    T2CON = 0x8000;
 
 	
     tmr2_obj.timerElapsed = false;

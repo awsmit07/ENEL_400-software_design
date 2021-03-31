@@ -81,7 +81,7 @@ void PIN_MANAGER_Initialize (void)
     TRISD = 0x0EC0;
     TRISE = 0x00FF;
     TRISF = 0x00BB;
-    TRISG = 0x020C;
+    TRISG = 0x03CC;
 
     /****************************************************************************
      * Setting the Weak Pull Up and Weak Pull Down SFR(s)
@@ -116,22 +116,22 @@ void PIN_MANAGER_Initialize (void)
     ANSD = 0xF8C0;
     ANSE = 0x00F0;
     ANSF = 0x0089;
-    ANSG = 0x0200;
-    
-    //Setting UTRDIS bit to use RG2 and RG3 as GPIO 
+    ANSG = 0x01C0;
+
+    //Setting UTRDIS bit to use RG2 and RG3 as GPIO
     U1CNFG2bits.UTRDIS = 1;
-    
+
     /****************************************************************************
      * Set the PPS
      ***************************************************************************/
     __builtin_write_OSCCONL(OSCCON & 0xbf); // unlock PPS
 
+    RPOR11bits.RP23R = 0x0007;    //RD2->SPI1:SDO1
     RPOR12bits.RP24R = 0x0008;    //RD1->SPI1:SCK1OUT
     RPOR5bits.RP11R = 0x0009;    //RD0->SPI1:SS1OUT
-    RPOR11bits.RP23R = 0x0007;    //RD2->SPI1:SDO1
 
     __builtin_write_OSCCONL(OSCCON | 0x40); // lock PPS
-    
+
     /****************************************************************************
      * Interrupt On Change: any
      ***************************************************************************/
@@ -139,10 +139,10 @@ void PIN_MANAGER_Initialize (void)
     CNEN2bits.CN18IE = 1;    //Pin : RF5
     CNEN2bits.CN30IE = 1;    //Pin : RB12
     CNEN3bits.CN32IE = 1;    //Pin : RB14
-    
+
     /* Initialize IOC Interrupt Handler*/
     CN_SetInterruptHandler(&CN_CallBack);
-    
+
     /****************************************************************************
      * Interrupt On Change: Interrupt Enable
      ***************************************************************************/
@@ -156,14 +156,14 @@ void __attribute__ ((weak)) CN_CallBack(void)
 }
 
 void CN_SetInterruptHandler(void (* InterruptHandler)(void))
-{ 
+{
     IEC1bits.CNIE = 0; //Disable CNI interrupt
-    CN_InterruptHandler = InterruptHandler; 
+    CN_InterruptHandler = InterruptHandler;
     IEC1bits.CNIE = 1; //Enable CNI interrupt
 }
 
 void CN_SetIOCInterruptHandler(void *handler)
-{ 
+{
     CN_SetInterruptHandler(handler);
 }
 
@@ -172,13 +172,12 @@ void __attribute__ (( interrupt, no_auto_psv )) _CNInterrupt ( void )
 {
     if(IFS1bits.CNIF == 1)
     {
-        if(CN_InterruptHandler) 
-        { 
-            CN_InterruptHandler(); 
+        if(CN_InterruptHandler)
+        {
+            CN_InterruptHandler();
         }
-        
+
         // Clear the flag
         IFS1bits.CNIF = 0;
     }
 }
-
