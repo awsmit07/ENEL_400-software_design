@@ -50,6 +50,7 @@
 #include "mcc_generated_files/tmr1.h"
 #include "InputManager.h"
 #include "AnalogOutManager.h"
+#include "LCD_Manager.h"
 #include <xc.h>
 
 /*

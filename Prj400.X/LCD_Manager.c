@@ -9,10 +9,11 @@
 #include "xc.h"
 #include "LCD_Manager.h"
 #include "mcc_generated_files/tmr1.h"
+#include "mcc_generated_files/pin_manager.h"
 
 void lcd_init()
 {
-    _RG8 = 0;
+    LCD_RS_SetLow();
     Time_delayMS(45); //Wait >40msec after power is applied
     lcd_send_cmd(0x30); //command 0x30 = Wake up 
     Time_delayMS(5); //must wait 5ms, busy flag not available
@@ -29,21 +30,21 @@ void lcd_init()
 void lcd_send_cmd(uint8_t cmd) 
 {
     PORTE = cmd; //put data on output Port
-    _RG6 = 0; //D/I=LOW : send instruction
-    _RG7 = 0; //R/W=LOW: Write
-    _RG8 = 1; 
-//    __delay_us(1);//enable pulse width>= 300ns
-    _RG8 = 0; //Clock enable: falling edge
+    LCD_RS_SetLow(); //D/I=LOW : send instruction
+    LCD_RW_SetLow(); //R/W=LOW: Write
+    LCD_EN_SetHigh();
+    Time_delayMS(1);//enable pulse width>= 300ns
+    LCD_EN_SetLow(); //Clock enable: falling edge
 }
 
 void lcd_write_char(char write)
 {
     PORTE = write;//put data on output Port
-    _RG6 = 1;//D/I=HIGH: send data
-    _RG7 = 0;//R/W=LOW : Write
-    _RG8 = 1;
-//    __delay_us(1);//enable pulse width>= 300ns
-    _RG8 = 0;//Clock enable: falling edge
+    LCD_RS_SetHigh();//D/I=HIGH: send data
+    LCD_RW_SetLow();//R/W=LOW : Write
+    LCD_EN_SetHigh();
+    Time_delayMS(1);//enable pulse width>= 300ns
+    LCD_EN_SetLow();//Clock enable: falling edge
 }
 
 void lcd_write_str(char * str)
