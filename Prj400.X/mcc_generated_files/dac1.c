@@ -1,18 +1,18 @@
-/**
-  System Interrupts Generated Driver File 
 
-  @Company:
+/**
+  DAC1 Generated Driver File 
+
+  @Company
     Microchip Technology Inc.
 
-  @File Name:
-    interrupt_manager.h
+  @File Name
+    dac1.c
 
-  @Summary:
-    This is the generated driver implementation file for setting up the
-    interrupts using PIC24 / dsPIC33 / PIC32MM MCUs
+  @Summary
+    This is the generated driver implementation file for the DAC1 driver using PIC24 / dsPIC33 / PIC32MM MCUs
 
-  @Description:
-    This source file provides implementations for PIC24 / dsPIC33 / PIC32MM MCUs interrupts.
+  @Description
+    This header file provides implementations for driver APIs for DAC1. 
     Generation Information : 
         Product Revision  :  PIC24 / dsPIC33 / PIC32MM MCUs - 1.170.0
         Device            :  PIC24FJ128GC006
@@ -20,6 +20,7 @@
         Compiler          :  XC16 v1.61
         MPLAB             :  MPLAB X v5.45
 */
+
 /*
     (c) 2020 Microchip Technology Inc. and its subsidiaries. You may use this
     software and any derivatives exclusively with Microchip products.
@@ -43,29 +44,44 @@
 */
 
 /**
-    Section: Includes
-*/
-#include <xc.h>
+  Section: Included Files
+*/        
+   
+#include "dac1.h"
 
 /**
-    void INTERRUPT_Initialize (void)
+  Section: Driver Interface
 */
-void INTERRUPT_Initialize (void)
-{
-    //    SPII: SPI1 - SPI1 Transfer Done
-    //    Priority: 1
-        IPC2bits.SPI1IP = 1;
-    //    CNI: CN -  Change Notification Interrupt
-    //    Priority: 1
-        IPC4bits.CNIP = 1;
-    //    MICI: MI2C1 - I2C1 Master Events
-    //    Priority: 1
-        IPC4bits.MI2C1P = 1;
-    //    SICI: SI2C1 - I2C1 Slave Events
-    //    Priority: 1
-        IPC4bits.SI2C1P = 1;
-    //    TI: T1 - Timer1
-    //    Priority: 1
-        IPC0bits.T1IP = 1;
 
+void DAC1_Initialize(void)
+{
+    // DACREF AVDD; DACFM Right; DACEN enabled; DACTSEL CMP1; DACTRIG disabled; DACSLP disabled; DACSIDL disabled; 
+    DAC1CON = 0x8002;
+    
 }
+
+void DAC1_OutputSet(uint16_t inputData)
+{
+    DAC1DAT  = inputData;
+}
+
+void __attribute__ ((weak)) DAC1_CallBack(void)
+{
+    // Add your custom callback code here
+}
+
+void DAC1_Tasks ( void )
+{
+	if(IFS4bits.DAC1IF)
+	{
+		// DAC1 callback function 
+		DAC1_CallBack();
+		
+		// clear the DAC1 interrupt flag
+		IFS4bits.DAC1IF = 0;
+	}
+}
+/**
+  End of File
+*/ 
+

@@ -17,6 +17,7 @@
         <itemPath>mcc_generated_files/i2c1.h</itemPath>
         <itemPath>mcc_generated_files/spi1.h</itemPath>
         <itemPath>mcc_generated_files/tmr2.h</itemPath>
+        <itemPath>mcc_generated_files/dac1.h</itemPath>
       </logicalFolder>
       <itemPath>Utils.h</itemPath>
       <itemPath>InputManager.h</itemPath>
@@ -42,6 +43,7 @@
         <itemPath>mcc_generated_files/i2c1.c</itemPath>
         <itemPath>mcc_generated_files/spi1.c</itemPath>
         <itemPath>mcc_generated_files/tmr2.c</itemPath>
+        <itemPath>mcc_generated_files/dac1.c</itemPath>
       </logicalFolder>
       <itemPath>Main.c</itemPath>
       <itemPath>InputManager.c</itemPath>

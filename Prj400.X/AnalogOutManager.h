@@ -36,6 +36,7 @@
 
 void AnalogOutManager_initialize(void);
 void AnalogOutManager_update(void);
+void AnalogOutManager_setOffset(int8_t);
+void AnalogOutManager_setScale(uint16_t);
 
 #endif	/* XC_HEADER_TEMPLATE_H */
-

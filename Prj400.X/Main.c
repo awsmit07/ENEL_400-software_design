@@ -50,6 +50,7 @@
 #include "mcc_generated_files/tmr1.h"
 #include "InputManager.h"
 #include "AnalogOutManager.h"
+#include "mcc_generated_files/dac1.h"
 #include <xc.h>
 
 /*
@@ -63,16 +64,36 @@ int main(void)
     AnalogOutManager_initialize();
 
     InputManager_Rot *p_rot0 = InputManager_getRot0(), *p_rot1 = InputManager_getRot1();
-    int32_t stime = 0;
+    uint32_t stime = 0;
+    uint16_t DACval = 0;
     
     while (1)
     {
         LED_SetLow();
         InputManager_updateRots();
-        Time_update();
+        //Time_update();
         AnalogOutManager_update();
+        if(CN_flags.flagROT0){
+            AnalogOutManager_setOffset(p_rot0->turnCount);
+        }
+        if(CN_flags.flagROT1){
+            AnalogOutManager_setScale(115U+p_rot1->turnCount);
+        }
+        if(CN_flags.flagROT0_press){
+            InputManager_clearCounts();
+        }
+        if(Time_getMS() - stime > 1000){
+            if(DACval == 0){
+                DACval = 0x3ff;
+            }
+            else{
+                DACval = 0;
+            }
+            DAC1_OutputSet(DACval);
+            stime = Time_getMS();
+        }
         InputManager_awkRotFlags();
-        LED_SetHigh();
+        //LED_SetHigh();
         Idle();
     }
     return 1;
