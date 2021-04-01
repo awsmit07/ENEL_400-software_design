@@ -52,12 +52,22 @@
 #include <stdbool.h>
 
 #include "spi1.h"
+<<<<<<< HEAD
 #include "i2c1.h"
 #include "dac1.h"
 #include "interrupt_manager.h"
 #include "traps.h"
-#include "tmr1.h"
+=======
 #include "tmr2.h"
+>>>>>>> origin/master
+#include "tmr1.h"
+<<<<<<< HEAD
+#include "tmr2.h"
+=======
+#include "i2c1.h"
+#include "interrupt_manager.h"
+#include "traps.h"
+>>>>>>> origin/master
 
 #warning "This file will be removed in future MCC releases. Use system.h instead."
 

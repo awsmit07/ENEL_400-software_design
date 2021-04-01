@@ -1,2 +1,13 @@
 # Ignore vim swap files
 *.swp
+
+
+# Ignore compiled code
+*.flag
+*.o
+*.d
+Prj400.X/dist
+pic_code/dist
+*.elf
+*.hex
+*.map
