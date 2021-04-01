@@ -62,6 +62,13 @@ int main(void)
     SYSTEM_Initialize();
     InputManager_initialize();
     AnalogOutManager_initialize();
+    lcd_init();
+    lcd_send_cmd(0x02);
+    Time_delayMS(2);
+    lcd_send_cmd(0x0d);
+    Time_delayMS(2);
+    lcd_write_str("Hello World!");
+
 
     InputManager_Rot *p_rot0 = InputManager_getRot0(), *p_rot1 = InputManager_getRot1();
     int32_t stime = 0;
@@ -73,6 +80,7 @@ int main(void)
         Time_update();
         AnalogOutManager_update();
         InputManager_awkRotFlags();
+        
         LED_SetHigh();
         Idle();
     }

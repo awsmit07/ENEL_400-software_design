@@ -13,6 +13,10 @@
 
 void lcd_init()
 {
+    ANSELE = 0x0000;
+    TRISE = 0x0000;
+    LATE = 0x0000;
+    
     LCD_RS_SetLow();
     Time_delayMS(45); //Wait >40msec after power is applied
     lcd_send_cmd(0x30); //command 0x30 = Wake up 
@@ -33,7 +37,7 @@ void lcd_send_cmd(uint8_t cmd)
     LCD_RS_SetLow(); //D/I=LOW : send instruction
     LCD_RW_SetLow(); //R/W=LOW: Write
     LCD_EN_SetHigh();
-    Time_delayMS(1);//enable pulse width>= 300ns
+    Time_delayMS(1); //enable pulse width>= 300ns
     LCD_EN_SetLow(); //Clock enable: falling edge
 }
 
@@ -52,6 +56,6 @@ void lcd_write_str(char * str)
     char * c = str; 
     for(*c; c++;)
     {
-        lcd_write_char(*str);
+        lcd_write_char(*c);
     }
 }
