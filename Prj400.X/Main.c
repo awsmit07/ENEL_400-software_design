@@ -69,7 +69,7 @@ int main(void)
     {
         LED_SetLow();
         InputManager_updateRots();
-        Time_update();
+        //Time_update();
         AnalogOutManager_update();
         InputManager_awkRotFlags();
         LED_SetHigh();

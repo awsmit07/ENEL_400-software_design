@@ -50,24 +50,6 @@
 #include <stdio.h>
 #include "tmr1.h"
 
-uint32_t Time_ms;
-
-void Time_update(){
-    Time_ms += TMR1_SoftwareCounterGet();
-    TMR1_SoftwareCounterClear();
-}
-uint32_t Time_getMS(){
-    return Time_ms;
-}
-uint16_t Time_getS(){
-    return Time_ms >> 10;
-}
-
-void Time_delayMS(uint8_t ms){
-    uint8_t stime = TMR1_SoftwareCounterGet();
-    while(TMR1_SoftwareCounterGet() - stime < ms);
-}
-
 /**
  Section: File specific functions
 */
@@ -108,19 +90,16 @@ static TMR_OBJ tmr1_obj;
 
 void TMR1_Initialize (void)
 {
-    
-    Time_ms = 0;
     //TMR1 0; 
     TMR1 = 0x00;
-    //Period = 0.001 s; Frequency = 4000000 Hz; PR1 499; 
-    PR1 = 0x1F3;
+    //Period = 0.001 s; Frequency = 16000000 Hz; PR1 1999; 
+    PR1 = 0x7CF;
     //TCKPS 1:8; TON enabled; TSIDL disabled; TCS FOSC/2; TECS SOSC; TSYNC disabled; TGATE disabled; 
     T1CON = 0x8010;
 
     if(TMR1_InterruptHandler == NULL)
     {
-        //TMR1_SetInterruptHandler(&TMR1_CallBack);
-        Time_update();
+        TMR1_SetInterruptHandler(&TMR1_CallBack);
     }
 
     IFS0bits.T1IF = false;
