@@ -1952,6 +1952,444 @@
 
 */
 #define ROT1_SW_SetDigitalOutput() (_TRISF5 = 0)
+/**
+  @Summary
+    Sets the GPIO pin, RG6, high using LATG6.
+
+  @Description
+    Sets the GPIO pin, RG6, high using LATG6.
+
+  @Preconditions
+    The RG6 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RG6 high (1)
+    LCD_RS_SetHigh();
+    </code>
+
+*/
+#define LCD_RS_SetHigh()          (_LATG6 = 1)
+/**
+  @Summary
+    Sets the GPIO pin, RG6, low using LATG6.
+
+  @Description
+    Sets the GPIO pin, RG6, low using LATG6.
+
+  @Preconditions
+    The RG6 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RG6 low (0)
+    LCD_RS_SetLow();
+    </code>
+
+*/
+#define LCD_RS_SetLow()           (_LATG6 = 0)
+/**
+  @Summary
+    Toggles the GPIO pin, RG6, using LATG6.
+
+  @Description
+    Toggles the GPIO pin, RG6, using LATG6.
+
+  @Preconditions
+    The RG6 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Toggle RG6
+    LCD_RS_Toggle();
+    </code>
+
+*/
+#define LCD_RS_Toggle()           (_LATG6 ^= 1)
+/**
+  @Summary
+    Reads the value of the GPIO pin, RG6.
+
+  @Description
+    Reads the value of the GPIO pin, RG6.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    uint16_t portValue;
+
+    // Read RG6
+    postValue = LCD_RS_GetValue();
+    </code>
+
+*/
+#define LCD_RS_GetValue()         _RG6
+/**
+  @Summary
+    Configures the GPIO pin, RG6, as an input.
+
+  @Description
+    Configures the GPIO pin, RG6, as an input.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RG6 as an input
+    LCD_RS_SetDigitalInput();
+    </code>
+
+*/
+#define LCD_RS_SetDigitalInput()  (_TRISG6 = 1)
+/**
+  @Summary
+    Configures the GPIO pin, RG6, as an output.
+
+  @Description
+    Configures the GPIO pin, RG6, as an output.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RG6 as an output
+    LCD_RS_SetDigitalOutput();
+    </code>
+
+*/
+#define LCD_RS_SetDigitalOutput() (_TRISG6 = 0)
+/**
+  @Summary
+    Sets the GPIO pin, RG7, high using LATG7.
+
+  @Description
+    Sets the GPIO pin, RG7, high using LATG7.
+
+  @Preconditions
+    The RG7 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RG7 high (1)
+    LCD_RW_SetHigh();
+    </code>
+
+*/
+#define LCD_RW_SetHigh()          (_LATG7 = 1)
+/**
+  @Summary
+    Sets the GPIO pin, RG7, low using LATG7.
+
+  @Description
+    Sets the GPIO pin, RG7, low using LATG7.
+
+  @Preconditions
+    The RG7 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RG7 low (0)
+    LCD_RW_SetLow();
+    </code>
+
+*/
+#define LCD_RW_SetLow()           (_LATG7 = 0)
+/**
+  @Summary
+    Toggles the GPIO pin, RG7, using LATG7.
+
+  @Description
+    Toggles the GPIO pin, RG7, using LATG7.
+
+  @Preconditions
+    The RG7 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Toggle RG7
+    LCD_RW_Toggle();
+    </code>
+
+*/
+#define LCD_RW_Toggle()           (_LATG7 ^= 1)
+/**
+  @Summary
+    Reads the value of the GPIO pin, RG7.
+
+  @Description
+    Reads the value of the GPIO pin, RG7.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    uint16_t portValue;
+
+    // Read RG7
+    postValue = LCD_RW_GetValue();
+    </code>
+
+*/
+#define LCD_RW_GetValue()         _RG7
+/**
+  @Summary
+    Configures the GPIO pin, RG7, as an input.
+
+  @Description
+    Configures the GPIO pin, RG7, as an input.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RG7 as an input
+    LCD_RW_SetDigitalInput();
+    </code>
+
+*/
+#define LCD_RW_SetDigitalInput()  (_TRISG7 = 1)
+/**
+  @Summary
+    Configures the GPIO pin, RG7, as an output.
+
+  @Description
+    Configures the GPIO pin, RG7, as an output.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RG7 as an output
+    LCD_RW_SetDigitalOutput();
+    </code>
+
+*/
+#define LCD_RW_SetDigitalOutput() (_TRISG7 = 0)
+/**
+  @Summary
+    Sets the GPIO pin, RG8, high using LATG8.
+
+  @Description
+    Sets the GPIO pin, RG8, high using LATG8.
+
+  @Preconditions
+    The RG8 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RG8 high (1)
+    LCD_EN_SetHigh();
+    </code>
+
+*/
+#define LCD_EN_SetHigh()          (_LATG8 = 1)
+/**
+  @Summary
+    Sets the GPIO pin, RG8, low using LATG8.
+
+  @Description
+    Sets the GPIO pin, RG8, low using LATG8.
+
+  @Preconditions
+    The RG8 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RG8 low (0)
+    LCD_EN_SetLow();
+    </code>
+
+*/
+#define LCD_EN_SetLow()           (_LATG8 = 0)
+/**
+  @Summary
+    Toggles the GPIO pin, RG8, using LATG8.
+
+  @Description
+    Toggles the GPIO pin, RG8, using LATG8.
+
+  @Preconditions
+    The RG8 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Toggle RG8
+    LCD_EN_Toggle();
+    </code>
+
+*/
+#define LCD_EN_Toggle()           (_LATG8 ^= 1)
+/**
+  @Summary
+    Reads the value of the GPIO pin, RG8.
+
+  @Description
+    Reads the value of the GPIO pin, RG8.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    uint16_t portValue;
+
+    // Read RG8
+    postValue = LCD_EN_GetValue();
+    </code>
+
+*/
+#define LCD_EN_GetValue()         _RG8
+/**
+  @Summary
+    Configures the GPIO pin, RG8, as an input.
+
+  @Description
+    Configures the GPIO pin, RG8, as an input.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RG8 as an input
+    LCD_EN_SetDigitalInput();
+    </code>
+
+*/
+#define LCD_EN_SetDigitalInput()  (_TRISG8 = 1)
+/**
+  @Summary
+    Configures the GPIO pin, RG8, as an output.
+
+  @Description
+    Configures the GPIO pin, RG8, as an output.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RG8 as an output
+    LCD_EN_SetDigitalOutput();
+    </code>
+
+*/
+#define LCD_EN_SetDigitalOutput() (_TRISG8 = 0)
 
 /**
     Section: Function Prototypes
