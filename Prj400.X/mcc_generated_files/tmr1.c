@@ -50,19 +50,6 @@
 #include <stdio.h>
 #include "tmr1.h"
 
-uint32_t Time_ms;
-
-void Time_update(){
-    Time_ms += TMR1_SoftwareCounterGet();
-    TMR1_SoftwareCounterClear();
-}
-uint32_t Time_getMS(){
-    return Time_ms;
-}
-uint16_t Time_getS(){
-    return Time_ms >> 10;
-}
-
 /**
  Section: File specific functions
 */
@@ -103,8 +90,6 @@ static TMR_OBJ tmr1_obj;
 
 void TMR1_Initialize (void)
 {
-    
-    Time_ms = 0;
     //TMR1 0; 
     TMR1 = 0x00;
     //Period = 0.001 s; Frequency = 2000000 Hz; PR1 1999; 

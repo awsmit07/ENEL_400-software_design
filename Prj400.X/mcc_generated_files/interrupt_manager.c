@@ -55,6 +55,9 @@ void INTERRUPT_Initialize (void)
     //    SPII: SPI1 - SPI1 Transfer Done
     //    Priority: 1
         IPC2bits.SPI1IP = 1;
+    //    USBI: USB1 - USB1 Interrupt
+    //    Priority: 1
+        IPC21bits.USB1IP = 1;
     //    MICI: MI2C1 - I2C1 Master Events
     //    Priority: 1
         IPC4bits.MI2C1P = 1;

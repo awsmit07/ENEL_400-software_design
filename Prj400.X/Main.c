@@ -61,7 +61,7 @@ int main(void)
     SYSTEM_Initialize();
     InputManager_initialize();
     AnalogOutManager_initialize();
-
+    USBDeviceInit();
     InputManager_Rot *p_rot0 = InputManager_getRot0(), *p_rot1 = InputManager_getRot1();
     int32_t stime = 0;
     
@@ -69,8 +69,9 @@ int main(void)
     {
         LED_SetLow();
         InputManager_updateRots();
-        Time_update();
+        //Time_update();
         InputManager_awkRotFlags();
+        
         LED_SetHigh();
         Idle();
     }

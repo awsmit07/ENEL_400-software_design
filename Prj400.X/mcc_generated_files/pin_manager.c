@@ -118,9 +118,6 @@ void PIN_MANAGER_Initialize (void)
     ANSF = 0x0089;
     ANSG = 0x03C0;
     
-    //Setting UTRDIS bit to use RG2 and RG3 as GPIO 
-    U1CNFG2bits.UTRDIS = 1;
-    
     /****************************************************************************
      * Interrupt On Change: any
      ***************************************************************************/
