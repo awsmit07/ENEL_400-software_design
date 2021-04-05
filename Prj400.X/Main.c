@@ -51,6 +51,7 @@
 #include "InputManager.h"
 #include "AnalogOutManager.h"
 #include "mcc_generated_files/dac1.h"
+#include "LCD_Manager.h"
 #include <xc.h>
 
 /*
@@ -62,11 +63,13 @@ int main(void)
     SYSTEM_Initialize();
     InputManager_initialize();
     AnalogOutManager_initialize();
+    lcd_init();
+
 
     InputManager_Rot *p_rot0 = InputManager_getRot0(), *p_rot1 = InputManager_getRot1();
     uint32_t stime = 0;
     uint16_t DACval = 0;
-    
+
     while (1)
     {
         LED_SetLow();
