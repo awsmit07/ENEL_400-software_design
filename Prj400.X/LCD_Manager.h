@@ -33,36 +33,9 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
-// TODO Insert appropriate #include <>
+#define LCD_CLEAR 0x01
+#define LCD_HOME 0x02
 
-// TODO Insert C++ class definitions if appropriate
-
-// TODO Insert declarations
-
-// Comment a function and leverage automatic documentation with slash star star
-/**
-    <p><b>Function prototype:</b></p>
-  
-    <p><b>Summary:</b></p>
-
-    <p><b>Description:</b></p>
-
-    <p><b>Precondition:</b></p>
-
-    <p><b>Parameters:</b></p>
-
-    <p><b>Returns:</b></p>
-
-    <p><b>Example:</b></p>
-    <code>
- 
-    </code>
-
-    <p><b>Remarks:</b></p>
- */
-// TODO Insert declarations or function prototypes (right here) to leverage 
-// live documentation
-void lcd_init();
 /*
  * lcd_init
  * 
@@ -72,8 +45,9 @@ void lcd_init();
  * Parameters: None
  * Returns: None
  */
+void lcd_init();
 
-void lcd_send_cmd(uint8_t cmd);
+
 /*
  * lcd_send_cmd
  * 
@@ -81,18 +55,52 @@ void lcd_send_cmd(uint8_t cmd);
  * 
  * param: 8bit 
  */
+void lcd_send_cmd(uint8_t cmd);
 
 
-void lcd_write_char(char write);
 /*
  * lcd_write_char
+ * 
+ * Writes a char at the current cursor location.
+ * 
+ * param: Character to write to the LCD
+ * 
  */
+void lcd_write_char(char write);
 
 
-void lcd_write_str(char * str);
 /*
  * lcd_write_str
+ * 
+ * Writes a string to the LCD
+ * 
+ * param: character pointer to a proper C string to write to the LCD. 
+ * returns: none
  */
+void lcd_write_str(char * str);
+
+
+/*
+ * lcd_wait_busy
+ * 
+ * Check if the LCD is currently busy and waits for it to finish.
+ * 
+ * param: none
+ * return: none
+ */
+void lcd_wait_busy();
+
+
+/*
+ * lcd_set_cursor
+ * 
+ * Sets the cursor position on the LCD
+ * 
+ * param: uint8_t cursor. Bits 0:3 specify the position on the line. 
+ * Bit 4 specifies the bottom line if bit4 == 1.
+ */
+void lcd_set_cursor(uint8_t cursor);
+
 
 #ifdef	__cplusplus
 extern "C" {

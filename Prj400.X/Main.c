@@ -63,11 +63,6 @@ int main(void)
     InputManager_initialize();
     AnalogOutManager_initialize();
     lcd_init();
-    lcd_send_cmd(0x02);
-    Time_delayMS(2);
-    lcd_send_cmd(0x0d);
-    Time_delayMS(2);
-    lcd_write_str("Hello World!");
 
 
     InputManager_Rot *p_rot0 = InputManager_getRot0(), *p_rot1 = InputManager_getRot1();
