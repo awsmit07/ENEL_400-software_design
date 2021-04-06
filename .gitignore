@@ -8,6 +8,9 @@
 *.d
 Prj400.X/dist
 Prj400.X/nbproject
+Prj400.X/build
+Prj400.X/debug
+Prj400.X/.generated_files
 pic_code/dist
 *.elf
 *.hex
