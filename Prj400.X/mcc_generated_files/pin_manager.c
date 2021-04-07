@@ -81,7 +81,7 @@ void PIN_MANAGER_Initialize (void)
     TRISD = 0x0EC0;
     TRISE = 0x00FF;
     TRISF = 0x00BB;
-    TRISG = 0x03CC;
+    TRISG = 0x020C;
 
     /****************************************************************************
      * Setting the Weak Pull Up and Weak Pull Down SFR(s)
@@ -116,7 +116,7 @@ void PIN_MANAGER_Initialize (void)
     ANSD = 0xF8C0;
     ANSE = 0x00F0;
     ANSF = 0x0089;
-    ANSG = 0x01C0;
+    ANSG = 0x0200;
 
     //Setting UTRDIS bit to use RG2 and RG3 as GPIO
     U1CNFG2bits.UTRDIS = 1;
