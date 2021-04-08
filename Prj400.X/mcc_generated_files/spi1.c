@@ -69,7 +69,7 @@ void SPI1_Initialize (void)
     // SPIFSD disabled; SPIBEN enabled; FRMPOL disabled; FRMDLY disabled; FRMEN enabled; 
     SPI1CON2 = 0x8001;
     // SISEL SPI_INT_TRMT_COMPLETE; SPIROV disabled; SPIEN enabled; SRXMPT disabled; SPISIDL disabled; SPIBEC disabled; 
-    SPI1STAT = 0x8014;
+    SPI1STAT = 0x800C;
 }
 void SPI1_Exchange( uint8_t *pTransmitData, uint8_t *pReceiveData )
 {
