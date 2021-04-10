@@ -50,6 +50,14 @@ enum chip_selects
  */
 void spi_init(void);
 
+/*
+ * spi_out
+ * 
+ * Send data out on SPI bus
+ * 
+ * param data: 16bit spi data to be sent out
+ * param cs: Chip select to send data to
+ */
 void spi_out(uint16_t data, uint8_t cs);
 
 void spi_out_rising(uint16_t data);
