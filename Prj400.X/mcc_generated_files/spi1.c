@@ -48,6 +48,7 @@
 */
 
 #include "spi1.h"
+#include "tmr1.h"
 
 /**
  Section: File specific functions
@@ -64,8 +65,8 @@ uint16_t SPI1_ExchangeBuffer(uint8_t *pTransmitData, uint16_t byteCount, uint8_t
 
 void SPI1_Initialize (void)
 {
-    // MSTEN Master; DISSDO disabled; PPRE 4:1; SPRE 4:1; MODE16 enabled; SMP Middle; DISSCK disabled; CKP Idle:High, Active:Low; CKE Active to Idle; SSEN disabled; 
-    SPI1CON1 = 0x572;
+    // MSTEN Master; DISSDO disabled; PPRE 4:1; SPRE 4:1; MODE16 enabled; SMP Middle; DISSCK disabled; CKP Idle:High, Active:Low; CKE Idle to Active; SSEN disabled; 
+    SPI1CON1 = 0x472;
     // SPIFSD disabled; SPIBEN enabled; FRMPOL disabled; FRMDLY disabled; FRMEN enabled; 
     SPI1CON2 = 0x8001;
     // SISEL SPI_INT_TRMT_COMPLETE; SPIROV disabled; SPIEN enabled; SRXMPT disabled; SPISIDL disabled; SPIBEC disabled; 
@@ -80,6 +81,8 @@ void SPI1_Exchange( uint8_t *pTransmitData, uint8_t *pReceiveData )
     }
 
     SPI1BUF = *((uint16_t*)pTransmitData);
+    
+    Time_delayMS(1);
 
     //while ( SPI1STATbits.SRXMPT == true);
 

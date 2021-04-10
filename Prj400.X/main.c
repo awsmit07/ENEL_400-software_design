@@ -52,6 +52,7 @@
 #include "AnalogOutManager.h"
 #include "mcc_generated_files/dac1.h"
 #include "LCD_Manager.h"
+#include "spi_manager.h"
 #include <xc.h>
 
 /*
@@ -65,11 +66,18 @@ int main(void)
     AnalogOutManager_initialize();
     lcd_init();
 
+    spi_init();
+    DAC_SEL_SetLow();
+    //lcd_write_str("Hello World");
 
     InputManager_Rot *p_rot0 = InputManager_getRot0(), *p_rot1 = InputManager_getRot1();
     uint32_t stime = 0;
     uint16_t DACval = 0;
-
+    
+    DDS_enable();
+    spi_out(0x4003, cs_pga1);
+    
+    
     while (1)
     {
         LED_SetLow();
@@ -88,9 +96,11 @@ int main(void)
         if(Time_getMS() - stime > 1000){
             if(DACval == 0){
                 DACval = 0x3ff;
+                spi_out(0x3fff, cs_trig);
             }
             else{
                 DACval = 0;
+                spi_out(0x3000, cs_trig);
             }
             DAC1_OutputSet(DACval);
             stime = Time_getMS();

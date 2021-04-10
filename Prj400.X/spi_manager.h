@@ -28,44 +28,44 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef INPUT_MANAGER_HEADER
-#define	INPUT_MANAGER_HEADER
+#ifndef SPI_MANAGER_H
+#define	SPI_MANAGER_H
 
-#include <xc.h> // include processor files - each processor file is guarded. 
-#include <stdint.h>
-#include "mcc_generated_files/interrupt_manager.h"
-#include "mcc_generated_files/pin_manager.h"
+#include <xc.h> // include processor files - each processor file is guarded.  
 
-typedef struct {
-    uint8_t valA :1;
-    uint8_t isCW :1;
-    uint8_t valSW :1;
-}InputManager_RotVals;
+enum chip_selects
+{
+    cs_dds,
+    cs_pga0,
+    cs_pga1,
+    cs_offset,
+    cs_trig
+};
 
-typedef struct {
-    InputManager_RotVals s_pastVals;
-    InputManager_RotVals s_currVals;
-    int16_t turnCount;
-}InputManager_Rot;
 
-typedef union{
-    struct {
-        uint8_t flagROT0 :1;
-        uint8_t flagROT0_press :1;
-        uint8_t flagROT1 :1;
-        uint8_t flagROT1_press :1;
-    };
-    uint8_t reg;
-}CN_Flags;
+/*
+ * spi_init
+ * 
+ * Initialize the SPI Drivers
+ */
+void spi_init(void);
 
-extern CN_Flags CN_flags;
+void spi_out(uint16_t data, uint8_t cs);
 
-void InputManager_initialize(void);
-void InputManager_updateRots(void);
-void InputManager_awkRotFlags(void);
-InputManager_Rot* InputManager_getRot0(void);
-InputManager_Rot* InputManager_getRot1(void);
-void InputManager_clearCounts(void);
+void spi_out_rising(uint16_t data);
+
+void spi_out_falling(uint16_t data);
+
+#ifdef	__cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
+    // TODO If C++ is being used, regular C code needs function names to have C 
+    // linkage so the functions can be used by the c code. 
+
+#ifdef	__cplusplus
+}
+#endif /* __cplusplus */
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 

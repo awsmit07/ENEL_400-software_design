@@ -51,10 +51,10 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#include "tmr2.h"
-#include "spi1.h"
 #include "tmr1.h"
+#include "spi1.h"
 #include "i2c1.h"
+#include "tmr2.h"
 #include "interrupt_manager.h"
 #include "traps.h"
 #include "dac1.h"

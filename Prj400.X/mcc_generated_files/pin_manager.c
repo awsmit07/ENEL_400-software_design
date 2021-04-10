@@ -68,7 +68,7 @@ void PIN_MANAGER_Initialize (void)
      ***************************************************************************/
     LATB = 0x0000;
     LATC = 0x0000;
-    LATD = 0x00C1;
+    LATD = 0x00C7;
     LATE = 0x0000;
     LATF = 0x0000;
     LATG = 0x0000;
@@ -120,17 +120,6 @@ void PIN_MANAGER_Initialize (void)
     
     //Setting UTRDIS bit to use RG2 and RG3 as GPIO 
     U1CNFG2bits.UTRDIS = 1;
-    
-    /****************************************************************************
-     * Set the PPS
-     ***************************************************************************/
-    __builtin_write_OSCCONL(OSCCON & 0xbf); // unlock PPS
-
-    RPOR5bits.RP11R = 0x0009;    //RD0->SPI1:SS1OUT
-    RPOR12bits.RP24R = 0x0008;    //RD1->SPI1:SCK1OUT
-    RPOR11bits.RP23R = 0x0007;    //RD2->SPI1:SDO1
-
-    __builtin_write_OSCCONL(OSCCON | 0x40); // lock PPS
     
     /****************************************************************************
      * Interrupt On Change: any
